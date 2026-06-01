@@ -15,7 +15,6 @@ pantalla.geometry("1200x900")
 
 pantalla.title("Ignorancia-BD")
 
-
 # imagenes de los marcadores
 img_marcador = PhotoImage(file=r"./im/fondo_marcador.png")
 img_categoria = PhotoImage(file=r"./im/fondo_cate.png")
