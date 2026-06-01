@@ -16,36 +16,25 @@ pantalla.geometry("1200x900")
 pantalla.title("Ignorancia-BD")
 
 
-# =========================
-# IMAGEN para el marcador, categoria, pregunta, SIGUIENTE
-# =========================
+# imagenes de los marcadores
 img_marcador = PhotoImage(file=r"./im/fondo_marcador.png")
 img_categoria = PhotoImage(file=r"./im/fondo_cate.png")
 img_pregunta = PhotoImage(file=r"./im/fondo_preg.png")
 img_siguiente = PhotoImage(file=r"./im/fondo_sig.png")
 img_jug = PhotoImage(file=r"./im/fondo_jug.png")
 
-# =========================
-# IMAGEN PARA LOS BOTONES
-# =========================
-img_boton = PhotoImage(file=r"./im/fondo_boton.png")
 
+# imagen botones
+img_boton = PhotoImage(file=r"./im/fondo_boton.png")
 img_label_jugador = PhotoImage(file=r"./im/fondo_label.png")
 
-# =========================
-# FONDO GENERAL DE LA VENTANA
-# =========================
+# fondo
 fondo_principal = PhotoImage(file=r"./im/CIE.png")
-
-# Crear un Label con la imagen y expandirlo por toda la ventana
 label_fondo = Label(pantalla, image=fondo_principal)
 label_fondo.place(x=0, y=0, relwidth=1, relheight=1)
 
 label_fondo.lower()
 
-# =========================
-# VARIABLES
-# =========================
 
 seleccion = ()
 
@@ -73,9 +62,8 @@ adv2 = 0
 adv3 = 0
 adv_ignorancia = 0
 
-# =========================
-# NOMBRES Y MARCADOR
-# =========================
+
+# nombres
 
 nombre1 = StringVar()
 nombre2 = StringVar()
@@ -87,19 +75,16 @@ victorias3 = 0
 
 str_marcador = StringVar()
 
-# =========================
-# CANVAS
-# =========================
 
+# fondo de la pista
 canvas = Canvas( pantalla, width=1200, height=495, bg="lightblue2",
  highlightthickness=0
 )
 
 canvas.place(x=0, y=190)
 
-# =========================
-# FONDO
-# =========================
+
+# la pista
 
 fon = PhotoImage(file=r"./im/PISTA.png")
 
@@ -107,9 +92,8 @@ canvas.create_image(0,0,image=fon,
 anchor=NW
 )
 
-# =========================
-# FUNCIONES
-# =========================
+
+# funciones variadas
 
 def validar_nombres(*args):
     """Bloquea el juego hasta que los 3 jugadores tengan un nombre escrito."""
@@ -457,9 +441,8 @@ def pregunta_sig():
 
     str_sig.set(nombre_turno)
 
-# =========================
-# CATEGORIAS
-# =========================
+
+# categorias
 
 L_cats = recupera_categoria()
 style = ttk.Style()
@@ -470,16 +453,13 @@ categorias = ttk.Combobox(pantalla, font=("Arial Black", 18, "bold"),state=DISAB
 categorias['values'] = L_cats
 categorias.place(x=170, y=10)
 categorias.bind("<<ComboboxSelected>>", pregunta)
-# Mostrar categoria seleccionada (recuadro)
 eti_cat = Label(pantalla, image=img_categoria,compound=CENTER, fg="Pink4", text="Categoria", font=("Arial Black", 18, "bold"),
 bg="purple4", activebackground="purple4", bd=0, highlightthickness=0, relief=FLAT, padx=0, pady=0, cursor="hand2")
 eti_cat.place(x=10, y=10)
 
 
-# =========================
-# BOTON SIGUIENTE
-# =========================
 
+# boton de siguiente
 sig = Button(pantalla, text="Siguiente", command=pregunta_sig, font=("Arial Black", 12, "bold"),bg="purple4", 
  activebackground="purple4", bd=0, highlightthickness=0, relief=FLAT,padx=0, pady=0, cursor="hand2",
  image=img_siguiente,compound=CENTER, fg="Pink4", state=DISABLED
@@ -488,10 +468,8 @@ sig = Button(pantalla, text="Siguiente", command=pregunta_sig, font=("Arial Blac
 
 sig.place(x=650, y=18)
 
-# =========================
-# TURNO
-# =========================
 
+# turnos
 str_sig.set("Jugador 1")
 
 sig_jug = Label(pantalla,compound=CENTER, fg="Pink4", image=img_jug, textvariable=str_sig,
@@ -501,10 +479,8 @@ sig_jug = Label(pantalla,compound=CENTER, fg="Pink4", image=img_jug, textvariabl
 
 sig_jug.place(x=850, y=20)
 
-# =========================
-# PREGUNTA
-# =========================
 
+# preguntas
 eti = Label(pantalla, image=img_pregunta,compound=CENTER, fg="Pink4", text="Pregunta",
  font=("Arial Black", 16, "bold"),bg="purple4", activebackground="purple4", bd=0, highlightthickness=0, relief=FLAT,
  padx=0, pady=0, cursor="hand2"
@@ -513,15 +489,13 @@ eti = Label(pantalla, image=img_pregunta,compound=CENTER, fg="Pink4", text="Preg
 eti.place(x=10, y=70)
 
 pre = Entry(pantalla, textvariable=str_preg, font=("Arial Black", 16, "bold"), bg="white",
- width=70, state="readonly"  # Bloquea la escritura manual
+ width=70, state="readonly" 
 )
 
 pre.place(x=170, y=70)
 
-# =========================
-# RESPUESTAS
-# =========================
 
+# respuestas
 r1 = Button(pantalla, textvariable=str_res1, command=opc1, image=img_boton, compound=CENTER,
             font=("Arial Black", 12, "bold"), fg="white", bg="purple4", activebackground="purple4", 
             bd=0, highlightthickness=0, relief=FLAT, padx=0, pady=0, cursor="hand2")
@@ -542,10 +516,8 @@ r4 = Button(pantalla, textvariable=str_res4, command=opc4, image=img_boton, comp
             bd=0, highlightthickness=0, relief=FLAT, padx=0, pady=0, cursor="hand2")
 r4.place(x=880, y=130)
 
-# =========================
-# IMAGENES GIF ANIMADAS
-# =========================
 
+# imagenes :)
 frames_ju1 = cargar_frames(r"./im/slime1.gif")
 frames_ju2 = cargar_frames(r"./im/slime2.gif")
 frames_ju3 = cargar_frames(r"./im/slime3.gif")
@@ -562,10 +534,8 @@ animar_gif(j3, frames_ju3)
 animar_gif(bu, frames_bur)
 
 
-# =========================
-# MARCADOR 
-# =========================
 
+# marcador
 actualizar_marcador()
 
 Label(pantalla,  textvariable=str_marcador, image=img_marcador,compound=CENTER, fg="black", font=("Arial Black", 11, "bold"), 
@@ -573,10 +543,8 @@ Label(pantalla,  textvariable=str_marcador, image=img_marcador,compound=CENTER, 
  width=786
 ).place(x=10, y=700)
 
-# =========================
-# NOMBRES 
-# =========================
 
+# nombres
 Label(pantalla, text="Jugador 1", image=img_label_jugador, compound=CENTER, fg="black", font=("Arial Black", 12, "bold"), bd=0, highlightthickness=0).place(x=20, y=740)
 entry_nombre1 = Entry(pantalla, textvariable=nombre1, font=("Arial Black", 12), width=18)
 entry_nombre1.place(x=20, y=770)
@@ -589,9 +557,8 @@ Label(pantalla, text="Jugador 3", image=img_label_jugador, compound=CENTER, fg="
 entry_nombre3 = Entry(pantalla, textvariable=nombre3, font=("Arial Black", 12), width=18)
 entry_nombre3.place(x=620, y=770)
 
-# =========================
-# RASTREADORES AUTOMÁTICOS
-# =========================
+
+# rastreadores
 nombre1.trace_add("write", validar_nombres)
 nombre2.trace_add("write", validar_nombres)
 nombre3.trace_add("write", validar_nombres)
