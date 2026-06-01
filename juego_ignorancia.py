@@ -563,7 +563,7 @@ animar_gif(bu, frames_bur)
 
 
 # =========================
-# MARCADOR ABAJO
+# MARCADOR 
 # =========================
 
 actualizar_marcador()
@@ -574,7 +574,7 @@ Label(pantalla,  textvariable=str_marcador, image=img_marcador,compound=CENTER, 
 ).place(x=10, y=700)
 
 # =========================
-# NOMBRES ABAJO
+# NOMBRES 
 # =========================
 
 Label(pantalla, text="Jugador 1", image=img_label_jugador, compound=CENTER, fg="black", font=("Arial Black", 12, "bold"), bd=0, highlightthickness=0).place(x=20, y=740)
