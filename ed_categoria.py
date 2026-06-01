@@ -31,9 +31,6 @@ def manipula_categorias():
             Tabl_cat.delete(record)
     
         categs = tabla_categorias()
-         # los espacios en blanco del Treeview de tkinter cortan la descripción a mostrar
-        # y solo muestran la primera palabra para eliminar ese problema recorremos
-        # el conjunto y cambiamos los espacios por guion bajo _
         for categ in categs:
             Tabl_cat.insert(parent="", index="end", iid=categ[0], text=str(categ[0]),alues=(str(categ[1]).replace(' ', '_')))
 
